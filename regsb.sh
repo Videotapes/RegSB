@@ -83,8 +83,6 @@ do
 
 				echo "Deconstructing desktop setup."
 
-				cd ~/desktop
-
 				#jump to desktop
 
 				while read -r directory
