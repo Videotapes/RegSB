@@ -11,16 +11,15 @@ do
 			unpack)
 
 				echo "Initiating desktop setup for diagnostics."
-				if [ -e ~/desktop/cleanuptemp.txt ]
+				if [ -e ~/Desktop/cleanuptemp.txt ]
 					then
 						echo "cleanuptemp.txt already exists; skipping generation."
-						
+
 					else
 						echo "Creating cleanuptemp.txt."
-						touch ~/desktop/cleanuptemp.txt
+						touch ~/Desktop/cleanuptemp.txt
 				fi
 				echo "How many registers are you setting up? "
-
 				read -r registers
 
 				until [ "$registers" -le 0 ]
@@ -34,23 +33,23 @@ do
 					f1c=$account$f1
 					f2c=$account$f2
 
-					mkdir -v ~/desktop/"$f1c" && mkdir -v ~/desktop/"$f2c"
+					mkdir -v ~/Desktop/"$f1c" && mkdir -v ~/Desktop/"$f2c"
 
-					if [ -s ~/desktop/cleanuptemp.txt ]
+					if [ -s ~/Desktop/cleanuptemp.txt ]
 						then
-							echo "$f1c" >> cleanuptemp.txt && echo "$f2c" >> cleanuptemp.txt
+							echo "$f1c" >> ~/Desktop/cleanuptemp.txt && echo "$f2c" >> ~/Desktop/cleanuptemp.txt
 
 						else
-							echo "$f1c" > cleanuptemp.txt && echo "$f2c" >> cleanuptemp.txt
+							echo "$f1c" > ~/Desktop/cleanuptemp.txt && echo "$f2c" >> ~/Desktop/cleanuptemp.txt
 					fi
 
-					diagnostics=$(ls -t ~/downloads |grep .zip |head -1)
+					diagnostics=$(ls -t ~/Downloads |grep .zip |head -1)
 
 					echo "$diagnostics"
 
-					mv -v ~/downloads/"$diagnostics" ~/desktop/"$f1c"
+					mv -v ~/Downloads/"$diagnostics" ~/Desktop/"$f1c"
 
-					unzip ~/desktop/"$f1c"/"$diagnostics"
+					unzip ~/Desktop/"$f1c"/"$diagnostics" -d ~/Desktop/"$f1c"
 					((registers--))
 				done
 				;;
@@ -67,9 +66,9 @@ do
 				while read -r directory
 				do
 					rm -rfv "$directory"
-				done < cleanuptemp.txt
+				done < ~/Desktop/cleanuptemp.txt
 
-				rm -rfv cleanuptemp.txt
+				rm -rfv ~/Desktop/cleanuptemp.txt
 				;;
 
 			kopps)
