@@ -68,9 +68,7 @@ do
 
 					mv -v ~/downloads/"$diagnostics" ~/desktop/"$f1c"
 
-					cd ~/desktop/"$f1c"
-
-					unzip "$diagnostics"
+					unzip ~/desktop/"$f1c"/"$diagnostics"
 					((registers--))
 					#locate, move and unzip most recently downloaded diags
 				done
