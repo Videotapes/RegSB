@@ -65,7 +65,7 @@ do
 
 				while read -r directory
 				do
-					rm -rfv "$directory"
+					rm -rfv ~/Desktop/"$directory"
 				done < ~/Desktop/cleanuptemp.txt
 
 				rm -rfv ~/Desktop/cleanuptemp.txt
