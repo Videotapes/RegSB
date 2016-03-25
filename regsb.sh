@@ -56,7 +56,26 @@ do
 
 			swap)
 
-				echo "This does nothing right now; stop doing it"
+				#echo "This does nothing right now; stop doing it"
+				declare -a diags=()
+				declare -a orig=()
+
+				dfind="diags"
+
+				while read -r directory
+				do
+  				if echo "$directory" | grep -q "$dfind"
+  					then
+    					diags=("${diags[@]}" "$directory")
+    					#add to array diags
+  					else
+    					orig=("${orig[@]}" "$directory")
+    					#add to array orig
+  				fi
+				done < ~/Desktop/cleanuptemp.txt
+				echo ${diags[@]}
+				echo "+++++++++++++++++++++++"
+				echo ${orig[@]}
 				;;
 
 			cleanup)
