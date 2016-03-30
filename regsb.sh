@@ -26,8 +26,8 @@ do
 					echo "Enter the account name: "
 					read -r account
 
-					Append_diag="diags"
-					Append_container="cont"
+					Append_diag="diag"
+					Append_container="con"
 
 					Diagnostics_folder=$account$Append_diag
 					Container_folder=$account$Append_container
@@ -59,7 +59,7 @@ do
 				declare -a Diagnostics_folder_storage=()
 				declare -a Container_folder_storage=()
 
-				dfind="diags"
+				dfind="diag"
 
 				while read -r directory ; do
   				if echo "$directory" | grep -q "$dfind"
